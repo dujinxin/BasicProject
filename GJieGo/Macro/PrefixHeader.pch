@@ -1,0 +1,134 @@
+//
+//  PrefixHeader.pch
+//  DynamicRehabilitation
+//
+//  Created by L on 16/2/20.
+//  Copyright © 2016年 Dev..l. All rights reserved.
+//
+#import <stdlib.h>
+#import "UIView+frameExtension.h"
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#define Prefix GJG
+
+/**
+ *打印信息
+ */
+#ifdef DEBUG
+#define GJGLog(...) NSLog(@"%s(%p) %@", __PRETTY_FUNCTION__, self, [NSString stringWithFormat:__VA_ARGS__])
+#else
+#define GJGLog(...)
+#endif
+
+#define GJGPrint_CurrentMethod GJGLog(@"%s",__FUNCTION__);
+#define GJGPrint_CurrentLine GJGLog(@"%d",__LINE__);
+#define GJGPrint_CurrentClass GJGLog(@"%s",__FILE__);
+#define GJGPrint_CurrentGJGack GJGLog(@"%@",[NGJGhread callGJGackSymbols]);
+#define GJGPrint_CurrentPath GJGLog(@"%s",__FILE__);
+#define GJGPrint_CurrentDetail GJGLog(@"class==>%@, method==>%s, line==>%d",[self class],__FUNCTION__,__LINE__);
+
+/******************************接口数据******************************/
+#define G_BASEURL @"Http://clientapi.guangjiego.com/v1"     //发布环境
+#define G_Test_BASEURL @"http://172.136.1.168:8888/v1"      //测试环境
+
+//4.13.1	获取开放城市列表
+#define kGet_OpenedCity         @"/City/GetOpenedCity"
+//4.6.1	获取城市下商圈
+#define kGet_BCCity             @"/BusinessCircle/GetBCByCity"
+//4.6.2	获取商圈行业类别【吃货、、、】
+#define kGet_BusinessTypeBC     @"/BusinessCircle/GetBusinessTypeByBC"
+//4.7.1	获取商圈下商场【商圈首页】
+#define kGet_MallBC             @"/Mall/GetMallByBC"
+//4.7.2	获取某业态类型下商场列表
+#define kGet_MallType           @"/Mall/GetMallByType"
+//4.7.3	获取商场相关属性
+#define kGet_MallProperty       @"/Mall/GetMallProperty"
+//4.7.4	获取商场详情
+#define kGet_MallDetails        @"/Mall/GetMallDetails"
+//4.7.5	获取商场首页信息
+#define kGet_MallHomeInfo       @"/Mall/GetMallHomeInfo"
+//4.8.13	收藏|取消收藏店铺
+#define kGet_CollectShop            @"/Shop/CollectShop"
+//4.7.6	获取商场商品分类【男装、女装、】
+#define kGet_ProductTypeMall    @"/Mall/GetProductTypeByMall"
+//4.7.7	获取商场运营分类【新品到店、店长推荐、】
+#define kGet_RunTypeMall        @"/Mall/GetRunTypeByMall"
+//4.7.8	获取商场服务【停车场】
+#define kGet_MallService        @"/Mall/GetMallService"
+//4.7.9	获取商场功能【wifi】
+#define kGet_MallFunc           @"/Mall/GetMallFunc"
+//4.8.14	获取wifi详情
+#define kGet_FreeWifi           @"/CommonInfo/GetFreeWifi"
+//4.8.15	意见反馈
+#define kGet_AddSuggestion          @"/CommonInfo/AddSuggestion"
+//4.8.1	获取商圈下某类型店铺列表距离排序
+#define kGet_ShopType               @"/Shop/GetShopByType"
+//4.8.2	获取商场下某类型店铺列表
+#define kGet_ShopInMallType         @"/Shop/GetShopInMallByType"
+//4.8.3	获取店铺详情
+#define kGet_ShopDetail             @"/Shop/GetShopDetails"
+//4.8.2	获取店铺相关属性
+#define kGet_ShopProperty           @"/Shop/GetShopProperty"
+//4.8.4	获取店铺首页信息
+#define kGet_ShopHomeInfo           @"/Shop/GetShopHomeInfo"
+//4.8.5	获取店铺商品分类
+#define kGet_ProductTypeShop        @"/Shop/GetProductTypeByShop"
+//4.8.6	获取店铺运营分类
+#define kGet_RunTypeShop            @"/Shop/GetRunTypeByShop"
+//4.8.7	获取超市促销分类
+#define kGet_PPTypeShop             @"/Shop/GetPPTypeByShop"
+//4.8.9	获取超市促销信息列表
+#define kGet_PPByShop                 @"/PromotionalPoster/GetPPByShop"
+//4.8.8	根据名称搜索店铺
+#define kGet_ShopName               @"/Shop/GetShopByName"
+//4.8.9	获取餐厅菜单
+#define kGet_Menu                   @"/Shop/GetMenu"
+//4.8.10	获取店铺环境
+#define kGet_ShopShow               @"/Shop/GetShopShow"
+//4.8.11	获取用户收藏的店铺
+#define kGet_ShopUser               @"/Shop/GetShopByUser"
+//4.8.12	获取用户收藏店铺商品类型
+#define kGet_ShopCollectionType     @"/Shop/GetShopCollectionType"
+//4.8.13	获取店铺功能【wifi】
+#define kGet_ShopFunc               @"/Shop/GetShopFunc"
+//4.9.1	按商品分类获取商场下优惠券列表
+#define kGet_CouponType         @"/Coupon/GetCouponByType"
+//4.9.2	获取店铺优惠券列表
+#define kGet_CouponShop         @"/Coupon/GetCouponByShop"
+//4.9.3	获取优惠券详情
+#define kGet_CouponDetail       @"/Coupon/GetCouponDetail"
+//4.9.4	获取用户优惠券
+#define kGet_CouponUser         @"/Coupon/GetCouponByUser"
+//4.10.5	领取优惠券
+#define kGet_Coupon             @"/Coupon/GetCoupon"
+//4.10.1	获取商场下所有热推
+#define kGet_HotPushMall        @"/HotPush/GetHotPushByMall"
+//4.10.2	获取店铺下热推
+#define kGet_HotPushShop        @"/HotPush/GetHotPushByShop"
+//4.11.3	获取热推详情
+#define kGet_HotPushDetail      @"/HotPush/GetHotPushDetails"
+//点赞
+#define kGet_HotLike            @"/HotPush/Like"
+//取消点赞
+#define kGet_HotUnLike          @"/HotPush/UnLike"
+//4.4.1	查询促销信息
+#define kGet_Promotions         @"/SalesPromotion/GetPromotions"
+
+//4.4.3	查询店铺促销信息
+#define kGet_PromotionsShop     @"/SalesPromotion/GetPromotionsByShop"
+//4.4.2	查询商场促销信息
+#define kGet_promotionsMall     @"/SalesPromotion/GetPromotionsByMall"
+
+
+//define this constant if you want to use Masonry without the 'mas_' prefix
+#define MAS_SHORTHAND
+
+//define this constant if you want to enable auto-boxing for default syntax
+#define MAS_SHORTHAND_GLOBALS
+
+#import "Masonry.h"
+#import "GJGStatisticManager.h"
+
+#endif /* PrefixHeader_pch */

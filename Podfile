@@ -1,0 +1,11 @@
+platform :ios, ‘8.1’
+    pod 'AFNetworking', '~> 3.0.4'
+	pod 'FMDB', '~> 2.6'
+	pod 'SDWebImage', '~> 3.7.4'
+	pod 'Masonry', '~> 0.6.4'
+	pod 'MBProgressHUD', '~> 0.9.2'
+	pod 'Toast', '~> 3.0'
+    pod 'MJRefresh','~>3.0.6'
+    pod 'MJExtension'
+    pod 'Hyphenate_CN'
+    pod 'UMengSocial', '~>5.0'

@@ -1,0 +1,82 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "95C54B79DB6FAE579AD110C3EC7744B1049677F8+++1A0E032",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "447576a2-f341-4371-b108-4e3d28df04ac++6584+++526DA3E" : {
+
+    },
+    "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++E70249C" : {
+
+    },
+    "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++D76BD89" : {
+
+    },
+    "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++45DDD9F" : {
+
+    },
+    "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++8DCF6F8" : {
+
+    },
+    "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++6F85F32" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++D76BD89" : 0,
+    "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++8DCF6F8" : 0,
+    "447576a2-f341-4371-b108-4e3d28df04ac++6584+++526DA3E" : 0,
+    "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++45DDD9F" : 0,
+    "95C54B79DB6FAE579AD110C3EC7744B1049677F8+++1A0E032" : 9223372036854775807,
+    "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++6F85F32" : 0,
+    "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++E70249C" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E7C408E5-2A33-41FA-B0C1-1D93F4FBA45C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++D76BD89" : "GJieGo\/",
+    "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++8DCF6F8" : "GJieGoTest\/",
+    "447576a2-f341-4371-b108-4e3d28df04ac++6584+++526DA3E" : "GJieGo\/GJieGo\/GJGTools%E5%B7%A5%E5%85%B7%E7%B1%BB\/MD5\/",
+    "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++45DDD9F" : "Shopping_C\/",
+    "95C54B79DB6FAE579AD110C3EC7744B1049677F8+++1A0E032" : "ShoppingGo\/",
+    "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++6F85F32" : "GJieGo\/",
+    "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++E70249C" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "GJieGo",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "GJieGo.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/192.168.1.12\/sg",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "447576a2-f341-4371-b108-4e3d28df04ac++6584+++526DA3E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/dujinxin\/ShoppingGo.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "95C54B79DB6FAE579AD110C3EC7744B1049677F8+++1A0E032"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/172.136.1.168",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++45DDD9F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/192.168.1.168",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++6F85F32"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/172.136.1.168",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++8DCF6F8"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/192.168.1.168",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++D76BD89"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/172.136.1.168",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++E70249C"
+    }
+  ]
+}

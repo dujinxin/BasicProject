@@ -1,0 +1,111 @@
+
+/* Class = "UINavigationItem"; title = "找回密码"; ObjectID = "3hn-Lv-uCt"; */
+"3hn-Lv-uCt.title" = "找回密码";
+
+/* Class = "UIButton"; normalTitle = "注册"; ObjectID = "3rr-Jy-8IX"; */
+"3rr-Jy-8IX.normalTitle" = "注册";
+
+/* Class = "UINavigationItem"; title = "商圈"; ObjectID = "5e4-FU-aez"; */
+"5e4-FU-aez.title" = "商圈";
+
+/* Class = "UIButton"; normalTitle = "女"; ObjectID = "6FV-wq-GSi"; */
+"6FV-wq-GSi.normalTitle" = "女";
+
+/* Class = "UINavigationItem"; title = "我的"; ObjectID = "7W3-Ag-KzI"; */
+"7W3-Ag-KzI.title" = "我的";
+
+/* Class = "UITabBarItem"; title = "我的"; ObjectID = "7e2-bm-fae"; */
+"7e2-bm-fae.title" = "我的";
+
+/* Class = "UIButton"; normalTitle = "获取验证码"; ObjectID = "9lQ-aK-uXR"; */
+"9lQ-aK-uXR.normalTitle" = "获取验证码";
+
+/* Class = "UILabel"; text = "账号："; ObjectID = "AdZ-A5-5zA"; */
+"AdZ-A5-5zA.text" = "账号：";
+
+/* Class = "UITextField"; placeholder = "请输入您的手机号码"; ObjectID = "DV0-du-Ms0"; */
+"DV0-du-Ms0.placeholder" = "请输入您的手机号码";
+
+/* Class = "UITextField"; placeholder = "请输入验证码"; ObjectID = "Did-9b-TWd"; */
+"Did-9b-TWd.placeholder" = "请输入验证码";
+
+/* Class = "UILabel"; text = "性别："; ObjectID = "EiV-U9-bi6"; */
+"EiV-U9-bi6.text" = "性别：";
+
+/* Class = "UITabBarItem"; title = "商圈"; ObjectID = "JdF-eR-wh3"; */
+"JdF-eR-wh3.title" = "商圈";
+
+/* Class = "UITextField"; placeholder = "8-20个字符"; ObjectID = "Jtt-Zu-Slw"; */
+"Jtt-Zu-Slw.placeholder" = "8-20个字符";
+
+/* Class = "UIButton"; normalTitle = "获取验证"; ObjectID = "LA1-br-dFP"; */
+"LA1-br-dFP.normalTitle" = "获取验证";
+
+/* Class = "UIButton"; normalTitle = "登录"; ObjectID = "VrB-O1-f3w"; */
+"VrB-O1-f3w.normalTitle" = "登录";
+
+/* Class = "UITextField"; placeholder = "请输入11位有效手机号码"; ObjectID = "aEw-QA-Rvq"; */
+"aEw-QA-Rvq.placeholder" = "请输入11位有效手机号码";
+
+/* Class = "UINavigationItem"; title = "注册"; ObjectID = "bMK-qh-K0f"; */
+"bMK-qh-K0f.title" = "注册";
+
+/* Class = "UIButton"; normalTitle = "登录"; ObjectID = "cAu-SC-f47"; */
+"cAu-SC-f47.normalTitle" = "登录";
+
+/* Class = "UILabel"; text = "用户名："; ObjectID = "d58-Pz-AcR"; */
+"d58-Pz-AcR.text" = "用户名：";
+
+/* Class = "UILabel"; text = "验证码："; ObjectID = "gHa-J4-zzd"; */
+"gHa-J4-zzd.text" = "验证码：";
+
+/* Class = "UILabel"; text = "密码："; ObjectID = "gjA-of-0RN"; */
+"gjA-of-0RN.text" = "密码：";
+
+/* Class = "UITextField"; placeholder = "用户名"; ObjectID = "gt8-0P-amI"; */
+"gt8-0P-amI.placeholder" = "用户名";
+
+/* Class = "UILabel"; text = "验证码："; ObjectID = "hk0-RZ-iHf"; */
+"hk0-RZ-iHf.text" = "验证码：";
+
+/* Class = "UITextField"; placeholder = "密码"; ObjectID = "lZF-ke-DjA"; */
+"lZF-ke-DjA.placeholder" = "密码";
+
+/* Class = "UIButton"; normalTitle = "男"; ObjectID = "lv1-fU-Suw"; */
+"lv1-fU-Suw.normalTitle" = "男";
+
+/* Class = "UILabel"; text = "年龄："; ObjectID = "mDb-0L-cLW"; */
+"mDb-0L-cLW.text" = "年龄：";
+
+/* Class = "UIButton"; normalTitle = "忘记密码？"; ObjectID = "mm0-1m-Qiz"; */
+"mm0-1m-Qiz.normalTitle" = "忘记密码？";
+
+/* Class = "UIButton"; normalTitle = "注册"; ObjectID = "oJM-7q-2y6"; */
+"oJM-7q-2y6.normalTitle" = "注册";
+
+/* Class = "UINavigationItem"; title = "发现"; ObjectID = "qAg-rK-dZ7"; */
+"qAg-rK-dZ7.title" = "发现";
+
+/* Class = "UILabel"; text = "手机号码："; ObjectID = "qLD-s4-e3t"; */
+"qLD-s4-e3t.text" = "手机号码：";
+
+/* Class = "UITabBarItem"; title = "发现"; ObjectID = "r8g-NG-2dE"; */
+"r8g-NG-2dE.title" = "发现";
+
+/* Class = "UITextField"; placeholder = "8-20个字符"; ObjectID = "tfX-ZS-FMW"; */
+"tfX-ZS-FMW.placeholder" = "8-20个字符";
+
+/* Class = "UILabel"; text = "密码："; ObjectID = "uO9-Y5-eN5"; */
+"uO9-Y5-eN5.text" = "密码：";
+
+/* Class = "UILabel"; text = "手机："; ObjectID = "vM4-C8-qcH"; */
+"vM4-C8-qcH.text" = "手机：";
+
+/* Class = "UITextField"; placeholder = "验证码"; ObjectID = "wBG-QA-Oqa"; */
+"wBG-QA-Oqa.placeholder" = "验证码";
+
+/* Class = "UITextField"; placeholder = "请输入您的年龄"; ObjectID = "xEa-iT-Cmc"; */
+"xEa-iT-Cmc.placeholder" = "请输入您的年龄";
+
+/* Class = "UITabBarItem"; title = "首页"; ObjectID = "xZw-Wr-dMD"; */
+"xZw-Wr-dMD.title" = "首页";
