@@ -7,7 +7,6 @@
 //
 
 #import "UserRecordListViewController.h"
-#import "SharedOrderDetailViewController.h"
 #import "RecordEntity.h"
 
 @interface UserRecordListViewController (){
@@ -138,11 +137,11 @@
 }
 #pragma mark - UICollectionViewDelegate
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    RecordEntity * entity = _dataArray[indexPath.item];
-    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    SharedOrderDetailViewController *detailVC = [[SharedOrderDetailViewController alloc] init];
-    detailVC.infoId = entity.Id.integerValue;
-    [self.navigationController pushViewController:detailVC animated:YES];
+//    RecordEntity * entity = _dataArray[indexPath.item];
+//    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+//    SharedOrderDetailViewController *detailVC = [[SharedOrderDetailViewController alloc] init];
+//    detailVC.infoId = entity.Id.integerValue;
+//    [self.navigationController pushViewController:detailVC animated:YES];
 }
 -(BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     return YES;

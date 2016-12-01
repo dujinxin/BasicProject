@@ -8,7 +8,6 @@
 
 #import "DJXNetworkConfig.h"
 #import <CommonCrypto/CommonDigest.h>
-#import "GJGLocationManager.h"
 
 @implementation DJXNetworkConfig
 
@@ -23,8 +22,8 @@
     }
     
 //    token = [token stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSNumber * longitude = [NSNumber numberWithDouble:[GJGLocationManager sharedManager].longitude];//@116.343651;//替换为首页获取到的经纬度
-    NSNumber * latitude = [NSNumber numberWithDouble:[GJGLocationManager sharedManager].latitude];//@39.7319074;//替换为首页获取到的经纬度
+    NSNumber * longitude = @116.343651;//@116.343651;//替换为首页获取到的经纬度
+    NSNumber * latitude = @39.7319074;//@39.7319074;//替换为首页获取到的经纬度
     NSString * parameters = [self commonParameter:token longitude:longitude latitude:latitude];
     return parameters;
 }

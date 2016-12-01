@@ -6,8 +6,8 @@
 //  Copyright © 2016年 yangzx. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BasicViewController.h"
 
-@interface GJGBusinessAreaController : BaseViewController
+@interface GJGBusinessAreaController : BasicViewController
 
 @end

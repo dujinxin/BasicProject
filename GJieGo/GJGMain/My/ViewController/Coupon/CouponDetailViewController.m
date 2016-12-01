@@ -9,7 +9,6 @@
 #import "CouponDetailViewController.h"
 #import "PayCouponCell.h"
 #import "OrderGuiderView.h"
-#import "FilmClassController.h"
 
 @interface CouponDetailViewController (){
     PayCouponCell     *    _cellView;
@@ -97,10 +96,10 @@
     JXWeakSelf(self);
     __unsafe_unretained CouponDetailEntity * entity = _entity;
     [_guiderView setClickEvents:^(id object) {
-        FilmClassController *controller = [[FilmClassController alloc] init];
-        controller.title = entity.ShopName;
-        controller.shopId = entity.ShopID;
-        [weakSelf.navigationController pushViewController:controller animated:YES];
+//        FilmClassController *controller = [[FilmClassController alloc] init];
+//        controller.title = entity.ShopName;
+//        controller.shopId = entity.ShopID;
+//        [weakSelf.navigationController pushViewController:controller animated:YES];
     }];
     locationButton = [UIButton buttonWithType:UIButtonTypeCustom];
     locationButton.frame = CGRectMake(kScreenWidth -95, 15, 80, 20);

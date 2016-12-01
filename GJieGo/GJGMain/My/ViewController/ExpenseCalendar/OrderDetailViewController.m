@@ -10,8 +10,7 @@
 #import "OrderStoreView.h"
 #import "OrderContentView.h"
 #import "OrderGuiderView.h"
-#import "GuideHomeViewController.h"
-#import "FilmClassController.h"
+
 @interface OrderDetailViewController ()<UIActionSheetDelegate>{
     OrderStoreView    *   _storeView;
     OrderContentView  *   _contentView;
@@ -98,16 +97,16 @@
     JXWeakSelf(self);
     __unsafe_unretained OrderDetailEntity * entity = orderEntity;
     [_storeView setClickEvents:^(id object) {
-        FilmClassController *controller = [[FilmClassController alloc] init];
-        controller.title = entity.ShopName;
-        controller.shopId = entity.ShopID;
-        [weakSelf.navigationController pushViewController:controller animated:YES];
+//        FilmClassController *controller = [[FilmClassController alloc] init];
+//        controller.title = entity.ShopName;
+//        controller.shopId = entity.ShopID;
+//        [weakSelf.navigationController pushViewController:controller animated:YES];
     }];
     [_guiderView setClickEvents:^(id object) {
-        GuideHomeViewController *home = [[GuideHomeViewController alloc] init];
-        home.gid = entity.GuideID.integerValue;
-        home.statisticChatOfHome = ID_0201080180003;
-        [weakSelf.navigationController pushViewController:home animated:YES];
+//        GuideHomeViewController *home = [[GuideHomeViewController alloc] init];
+//        home.gid = entity.GuideID.integerValue;
+//        home.statisticChatOfHome = ID_0201080180003;
+//        [weakSelf.navigationController pushViewController:home animated:YES];
     }];
     
     _surplusTimeLabel.text = @"剩余支付时间：59min59s";

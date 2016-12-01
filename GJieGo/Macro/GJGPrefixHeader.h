@@ -18,6 +18,7 @@
 #import <UIKit/UIKit.h>
 
 #import "AppDelegate.h"
+#import "BaseNavigationController.h"
 
 #import "AppMacro.h"
 #import "NotificationMacro.h"
@@ -33,7 +34,6 @@
 #import "ShareManager.h"
 #import "ChatManager.h"
 #import "NotificationManager.h"
-#import "GJGLocationManager.h"
 
 #import "GJGApiUrl.h"
 

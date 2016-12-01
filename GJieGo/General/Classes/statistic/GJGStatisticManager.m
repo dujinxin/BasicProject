@@ -121,9 +121,9 @@ static GJGStatisticManager *instance;
     
     NSString *IP = @"";
     
-    NSString *City = [GJGLocationManager sharedManager].cityName;
+    NSString *City = @"";
     
-    NSString *Area = [GJGLocationManager sharedManager].cityName;
+    NSString *Area = @"";
     
     NSString *UserID;
     

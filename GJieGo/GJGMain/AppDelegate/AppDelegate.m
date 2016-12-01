@@ -21,8 +21,6 @@
 
 #import <CloudPushSDK/CloudPushSDK.h>
 #import "FansViewController.h"
-#import "ShopGuideDetailViewController.h"
-#import "SharedOrderDetailViewController.h"
 
 #import "CustomURLCache.h"
 
@@ -41,8 +39,6 @@
     return UIInterfaceOrientationMaskPortrait;
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    [[GJGStatisticManager sharedManager] statisticByEventID:ID_0201070000001 andBCID:nil andMallID:nil andShopID:nil andBusinessType:nil andItemID:nil andItemText:nil andOpUserID:nil];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
@@ -81,7 +77,7 @@
         [[UserRequest shareManager] userLongToken:kApiUserLongToken param:@{@"RToken":[[UserDBManager shareManager] getRefreshToken]} success:^(id object,NSString *msg) {} failure:^(id object,NSString *msg) {}];
     }else{
         //获取游客token
-        NSString * parameterStr = [DJXNetworkConfig commonParameter:nil longitude:[NSNumber numberWithDouble:[GJGLocationManager sharedManager].longitude] latitude:[NSNumber numberWithDouble:[GJGLocationManager sharedManager].latitude]];
+        NSString * parameterStr = [DJXNetworkConfig commonParameter:nil longitude:@0 latitude:@0];
         [[UserRequest shareManager] userShortToken:kGJGRequestUrl_v_cp(kApiVersion,kApiUserShortToken,parameterStr) param:@{@"Uc":[DJXNetworkConfig tokenStr:nil]} success:^(id object,NSString *msg) {} failure:^(id object,NSString *msg) {}];
     }
 
@@ -107,7 +103,6 @@
     
     if ([current_ver isEqualToString:ver]) {
         [self setUpTabBarController];
-//        [self showBadge:[[NotificationManager shareManager] isHasUnReadMessages]];
         [self showBadge:[[NotificationManager shareManager] isHasNews]];
     }else {
         [self setUpGuideController];
@@ -327,9 +322,7 @@ didFinishLaunchingWithOptions:launchOptions
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // 进入后台发送统计文件
-    [[GJGStatisticManager sharedManager] upLoadToServer];   
+- (void)applicationDidEnterBackground:(UIApplication *)application {  
     
 }
 

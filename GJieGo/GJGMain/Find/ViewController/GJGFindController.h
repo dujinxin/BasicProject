@@ -6,12 +6,8 @@
 //  Copyright © 2016年 yangzx. All rights reserved.
 //
 
-#import "BaseViewController.h"
-#import <JavaScriptCore/JavaScriptCore.h>
-#import "HybirdUrlHandler.h"
+#import "BasicViewController.h"
 
+@interface GJGFindController : BasicViewController
 
-@interface GJGFindController : BaseViewController
-@property (nonatomic,strong) UIWebView *webView;
-@property (nonatomic,copy) HybridCallbackBlock callBackBlock;
 @end

@@ -14,8 +14,7 @@
 
 #import <CloudPushSDK/CloudPushSDK.h>
 #import "FansViewController.h"
-#import "ShopGuideDetailViewController.h"
-#import "SharedOrderDetailViewController.h"
+
 
 /**
  *  本类中做了EaseMob初始化和推送等操作
@@ -214,13 +213,13 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
             case NotificationReturnType:
             {
                 if ([self.notificationDict[@"UserType"] integerValue] == Guider) {
-                    ShopGuideDetailViewController *svc = [[ShopGuideDetailViewController alloc] init];
-                    svc.infoid = [self.notificationDict[@"InfoId"] integerValue];
-                    [baseVc pushViewController:svc animated:YES];
+//                    ShopGuideDetailViewController *svc = [[ShopGuideDetailViewController alloc] init];
+//                    svc.infoid = [self.notificationDict[@"InfoId"] integerValue];
+//                    [baseVc pushViewController:svc animated:YES];
                 }else if([self.notificationDict[@"UserType"] integerValue] == User){
-                    SharedOrderDetailViewController *svc = [[SharedOrderDetailViewController alloc] init];
-                    svc.infoId = [self.notificationDict[@"InfoId"] integerValue];
-                    [baseVc pushViewController:svc animated:YES];
+//                    SharedOrderDetailViewController *svc = [[SharedOrderDetailViewController alloc] init];
+//                    svc.infoId = [self.notificationDict[@"InfoId"] integerValue];
+//                    [baseVc pushViewController:svc animated:YES];
                 }else{
                     [[JXViewManager sharedInstance] showJXNoticeMessage:@"用户类型出错！"];
                 }
@@ -266,7 +265,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     AppDelegate * appDelegate = [AppDelegate appDelegate];
     
-    NSString * parameterStr = [DJXNetworkConfig commonParameter:nil longitude:[NSNumber numberWithDouble:[GJGLocationManager sharedManager].longitude] latitude:[NSNumber numberWithDouble:[GJGLocationManager sharedManager].latitude]];
+    NSString * parameterStr = [DJXNetworkConfig commonParameter:nil longitude:@0 latitude:@0];
     [[UserRequest shareManager] userShortToken:kGJGRequestUrl_v_cp(kApiVersion,kApiUserShortToken,parameterStr) param:@{@"Uc":[DJXNetworkConfig tokenStr:nil]} success:^(id object,NSString *msg) {} failure:^(id object,NSString *msg) {
         
         [appDelegate.tabBarController setSelectedIndex:0];

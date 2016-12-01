@@ -547,7 +547,7 @@
         [textView resignFirstResponder];
         textView.text = [textView.text substringToIndex:3000];
         ChatViewController *chatVC = (ChatViewController *)self.delegate;
-        [MBProgressHUD showError:@"您已输入3000字不能继续输入" toView:chatVC.view];
+        [[JXViewManager sharedInstance] showJXNoticeMessage:@"您已输入3000字不能继续输入"];
         return NO;
     }
     if ([text isEqualToString:@"\n"]) {

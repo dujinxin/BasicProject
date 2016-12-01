@@ -6,9 +6,9 @@
 //  Copyright © 2016年 guangjiego.yangzx. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BasicViewController.h"
 
-@interface GJGADWebViewController : BaseViewController
+@interface GJGADWebViewController : BasicViewController
 
 @property (nonatomic,copy) NSString *urlStr;
 

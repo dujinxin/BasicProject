@@ -28,7 +28,7 @@
 }
 
 - (void)setUrlStr:(NSString *)urlStr {
-    _urlStr = urlStr;
+    self.urlStr = urlStr;
     [self loadWebView];
 }
 
@@ -36,8 +36,8 @@
     [super viewDidLoad];
     [self loadWebView];
     
-    statusBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 20)];
-    statusBackView.backgroundColor = COLOR(254, 227, 48, 1);
+    statusBackView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 20)];
+    statusBackView.backgroundColor = JXColorFromR_G_B_A(254, 227, 48, 1);
     [self.view addSubview:statusBackView];
 }
 

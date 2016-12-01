@@ -10,8 +10,6 @@
 #import "OrderGuiderView.h"
 
 #import "FansViewController.h"
-#import "ShopGuideDetailViewController.h"
-#import "SharedOrderDetailViewController.h"
 
 @interface NewsListViewController (){
     NSDateFormatter * dateFormatter;
@@ -216,13 +214,13 @@
         case NotificationReturnType:
         {
             if ([dict[@"Infotype"] integerValue] == NotificationAssociationProm) {
-                ShopGuideDetailViewController *detailVC = [[ShopGuideDetailViewController alloc] init];
-                detailVC.infoid = [dict[@"InfoId"] integerValue];
-                [self.navigationController pushViewController:detailVC animated:YES];
+//                ShopGuideDetailViewController *detailVC = [[ShopGuideDetailViewController alloc] init];
+//                detailVC.infoid = [dict[@"InfoId"] integerValue];
+//                [self.navigationController pushViewController:detailVC animated:YES];
             }else if([dict[@"Infotype"] integerValue] == NotificationAssociationShow){
-                SharedOrderDetailViewController *detailVC = [[SharedOrderDetailViewController alloc] init];
-                detailVC.infoId = [dict[@"InfoId"] integerValue];
-                [self.navigationController pushViewController:detailVC animated:YES];
+//                SharedOrderDetailViewController *detailVC = [[SharedOrderDetailViewController alloc] init];
+//                detailVC.infoId = [dict[@"InfoId"] integerValue];
+//                [self.navigationController pushViewController:detailVC animated:YES];
             }else{
                 [self showJXNoticeMessage:@"用户类型出错！"];
             }

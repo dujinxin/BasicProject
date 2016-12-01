@@ -9,9 +9,7 @@
 #import "GuiderRecordListViewController.h"
 #import "RecordGuiderCell.h"
 #import "GuiderViewFlowLayout.h"
-
-#import "ShopGuideDetailViewController.h"
-#import "JZAlbumViewController.h"
+//#import "JZAlbumViewController.h"
 
 @interface GuiderRecordListViewController ()<WaterFlowLayoutDelegate,UIGuiderViewCellDelegate>{
     NSDateFormatter * dateFormatter;
@@ -120,19 +118,19 @@
 #pragma mark - UICollectionViewDelegate
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     RecordGuiderEntity * entity = _dataArray[indexPath.item];
-    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    ShopGuideDetailViewController *detailVC = [[ShopGuideDetailViewController alloc] init];
-    detailVC.infoid = entity.InfoId.integerValue;
-    detailVC.statisticChat = ID_0201080180004;
-    [self.navigationController pushViewController:detailVC animated:YES];
+//    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+//    ShopGuideDetailViewController *detailVC = [[ShopGuideDetailViewController alloc] init];
+//    detailVC.infoid = entity.InfoId.integerValue;
+//    detailVC.statisticChat = ID_0201080180004;
+//    [self.navigationController pushViewController:detailVC animated:YES];
 }
 - (void)guiderViewCell:(RecordGuiderCell *)recordGuiderCell indexPath:(NSIndexPath *)indexPath index:(NSInteger)index{
-    RecordGuiderEntity * entity = _dataArray[indexPath.item];
-    NSArray * imageArray = [entity.Images componentsSeparatedByString:@","];
-    JZAlbumViewController *imgVC = [[JZAlbumViewController alloc] init];
-    imgVC.currentIndex = index;
-    imgVC.imgArr = imageArray;
-    [self presentViewController:imgVC animated:YES completion:nil];
+//    RecordGuiderEntity * entity = _dataArray[indexPath.item];
+//    NSArray * imageArray = [entity.Images componentsSeparatedByString:@","];
+//    JZAlbumViewController *imgVC = [[JZAlbumViewController alloc] init];
+//    imgVC.currentIndex = index;
+//    imgVC.imgArr = imageArray;
+//    [self presentViewController:imgVC animated:YES completion:nil];
 }
 
 - (CGFloat)waterFlow:(GuiderViewFlowLayout *)waterFlow itemWidth:(CGFloat)itemW cellIndexPath:(NSIndexPath *)indexPath{

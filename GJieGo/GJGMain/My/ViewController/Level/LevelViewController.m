@@ -9,7 +9,6 @@
 #import "LevelViewController.h"
 #import "GrowInfoViewController.h"
 #import "ModifyInformationViewController.h"
-#import "ShareViewController.h"
 #import "DetailWebViewController.h"
 
 #import "LevelView.h"
@@ -657,53 +656,15 @@ static CGFloat headViewBottomHeight = 145.f;
         rect.origin.x = xOffset;
         rect.size.width = kScreenWidth + fabs(xOffset);
         bgImageView.frame = rect;
-//        CGRect HeadImageRect = CGRectMake((kScreenWidth-PayBillViewHeight)/2, 40, PayBillViewHeight, PayBillViewHeight);
-//        HeadImageRect.origin.y = bgImageView.frame.origin.y;
-//        HeadImageRect.size.height =  PayBillViewHeight + fabs(xOffset)*0.5 ;
-//        HeadImageRect.origin.x = self.view.center.x - HeadImageRect.size.height/2;
-//        HeadImageRect.size.width = PayBillViewHeight + fabs(xOffset)*0.5;
-//        bgImageView.frame = HeadImageRect;
-//        bgImageView.layer.cornerRadius = HeadImageRect.size.height/2;
-//        bgImageView.clipsToBounds = YES;
-
-//        CGRect NameRect = CGRectMake((kScreenWidth-PayBillViewHeight)/2, CGRectGetMaxY(bgImageView.frame)+5, PayBillViewHeight, 20);
-//        NameRect.origin.y = CGRectGetMaxY(bgImageView.frame)+5;
-//        NameRect.size.height =  20 + fabs(xOffset)*0.5 ;
-//        NameRect.size.width = PayBillViewHeight + fabs(xOffset)*0.5;
-//        NameRect.origin.x = self.view.center.x - NameRect.size.width/2;
-//
-//        _nameLabel.font=[UIFont systemFontOfSize:17+fabs(xOffset)*0.2];
-//
-//        _nameLabel.frame = NameRect;
-        
-        
     }else{
-        //        CGRect HeadImageRect = CGRectMake((KScreen_Width-HeadImageHeight)/2, 40, HeadImageHeight, HeadImageHeight);
-        //        HeadImageRect.origin.y = _headImageView.frame.origin.y;
-        //        HeadImageRect.size.height =  HeadImageHeight - fabs(xOffset)*0.5 ;
-        //        HeadImageRect.origin.x = self.view.center.x - HeadImageRect.size.height/2;
-        //        HeadImageRect.size.width = HeadImageHeight - fabs(xOffset)*0.5;
-        //        _headImageView.frame = HeadImageRect;
-        //        _headImageView.layer.cornerRadius = HeadImageRect.size.height/2;
-        //        _headImageView.clipsToBounds = YES;
-        //
-        //        CGRect NameRect = CGRectMake((KScreen_Width-HeadImageHeight)/2, CGRectGetMaxY(_headImageView.frame)+5, HeadImageHeight, 20);
-        //        NameRect.origin.y = CGRectGetMaxY(_headImageView.frame)+5;
-        //        NameRect.size.height =  20;
-        //        NameRect.size.width = HeadImageHeight - fabs(xOffset)*0.5;
-        //        NameRect.origin.x = self.view.center.x - NameRect.size.width/2;
-        //
-        //        _nameLabel.font=[UIFont systemFontOfSize:17-fabs(xOffset)*0.2];
-        //
-        //        _nameLabel.frame = NameRect;
-        
+
     }
 }
 #pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1) {
-        ShareViewController *shareVC = [[ShareViewController alloc] init];
-        [self.navigationController pushViewController:shareVC animated:YES];
+//        ShareViewController *shareVC = [[ShareViewController alloc] init];
+//        [self.navigationController pushViewController:shareVC animated:YES];
     }
 }
 

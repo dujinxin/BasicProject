@@ -36,7 +36,7 @@
     if([[UserDBManager shareManager] getRefreshToken].length){//刷新token，用户或者游客
         [[UserRequest shareManager] userLongToken:kApiUserLongToken param:@{@"RToken":[[UserDBManager shareManager] getRefreshToken]} success:^(id object,NSString *msg) {} failure:^(id object,NSString *msg) {}];
     }else{//获取游客token
-        NSString * parameterStr = [DJXNetworkConfig commonParameter:nil longitude:[NSNumber numberWithDouble:[GJGLocationManager sharedManager].longitude] latitude:[NSNumber numberWithDouble:[GJGLocationManager sharedManager].latitude]];
+        NSString * parameterStr = [DJXNetworkConfig commonParameter:nil longitude:@0 latitude:@0];
         [[UserRequest shareManager] userShortToken:kGJGRequestUrl_v_cp(kApiVersion,kApiUserShortToken,parameterStr) param:@{@"Uc":[DJXNetworkConfig tokenStr:nil]} success:^(id object,NSString *msg) {} failure:^(id object,NSString *msg) {}];
     }
 }
@@ -71,16 +71,9 @@
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
     
     for (int i = 0; i < GJGIMAGECOUNT; i ++) {
-        UIImageView *imageView = [[UIImageView alloc] init];
-        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * w, 0, w, h)];
         NSString *imageName = [NSString stringWithFormat:@"guide_%d",i + 1];
         imageView.image = [UIImage imageNamed:imageName];
-        
-        imageView.height = h;
-        imageView.width = w;
-        imageView.y = 0;
-        imageView.x = i * w;
-        
         [self.scrollView addSubview:imageView];
         
         // 如果是最后一个图片框就添加按钮

@@ -1,5 +1,5 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "95C54B79DB6FAE579AD110C3EC7744B1049677F8+++1A0E032",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "7B82FF9D2DB64A01E2066C7902D7459180344CC8+++B51EE3B",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
     "447576a2-f341-4371-b108-4e3d28df04ac++6584+++526DA3E" : {
 
@@ -7,7 +7,7 @@
     "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++E70249C" : {
 
     },
-    "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++D76BD89" : {
+    "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++6F85F32" : {
 
     },
     "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++45DDD9F" : {
@@ -16,7 +16,7 @@
     "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++8DCF6F8" : {
 
     },
-    "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++6F85F32" : {
+    "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++D76BD89" : {
 
     }
   },
@@ -25,6 +25,7 @@
     "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++8DCF6F8" : 0,
     "447576a2-f341-4371-b108-4e3d28df04ac++6584+++526DA3E" : 0,
     "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++45DDD9F" : 0,
+    "7B82FF9D2DB64A01E2066C7902D7459180344CC8+++B51EE3B" : 9223372036854775807,
     "95C54B79DB6FAE579AD110C3EC7744B1049677F8+++1A0E032" : 9223372036854775807,
     "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++6F85F32" : 0,
     "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++E70249C" : 0
@@ -35,6 +36,7 @@
     "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++8DCF6F8" : "GJieGoTest\/",
     "447576a2-f341-4371-b108-4e3d28df04ac++6584+++526DA3E" : "GJieGo\/GJieGo\/GJGTools%E5%B7%A5%E5%85%B7%E7%B1%BB\/MD5\/",
     "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++45DDD9F" : "Shopping_C\/",
+    "7B82FF9D2DB64A01E2066C7902D7459180344CC8+++B51EE3B" : "BasicProject\/",
     "95C54B79DB6FAE579AD110C3EC7744B1049677F8+++1A0E032" : "ShoppingGo\/",
     "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++6F85F32" : "GJieGo\/",
     "aec9a4eb-b16a-4440-bf87-4fa1128ff9fe++8082+++E70249C" : ""
@@ -47,6 +49,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/192.168.1.12\/sg",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "447576a2-f341-4371-b108-4e3d28df04ac++6584+++526DA3E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/dujinxin\/BasicProject.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "7B82FF9D2DB64A01E2066C7902D7459180344CC8+++B51EE3B"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/dujinxin\/ShoppingGo.git",

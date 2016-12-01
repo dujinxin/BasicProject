@@ -10,8 +10,6 @@
 #import "NotificationUtil.h"
 
 #import "FansViewController.h"
-#import "ShopGuideDetailViewController.h"
-#import "SharedOrderDetailViewController.h"
 #import "ConversationListViewController.h"
 #import "ChatViewController.h"
 

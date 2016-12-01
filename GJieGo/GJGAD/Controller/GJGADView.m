@@ -11,15 +11,12 @@
 #import "ADViewEntity.h"
 #import "JXViewManager.h"
 #import "BaseTabBarController.h"
-#import "GeneralMarketController.h"
-#import "RestaurantClassController.h"
-#import "FilmClassController.h"
+
 #import "BaseTabBarController.h"
 #import "BaseNavigationController.h"
-#import "ShopCenterController.h"
+
 #import "GJGStatisticManager.h"
 #import "SDWebImageDownloader.h"
-#import "WebViewController.h"
 
 @interface GJGADView (){
     
@@ -197,25 +194,25 @@
 //    self.entity.LinkId = @(87);
     
     if ([self.entity.BusinessFormat isEqualToString:@"supermarket"]) {//超市    ②③
-        GeneralMarketController *controller = [[GeneralMarketController alloc] init];
-        controller.shopId = [NSString stringWithFormat:@"%@", self.entity.LinkId];
-        [Vc pushViewController:controller animated:YES];
-        [self removeFromSuperview];
+//        GeneralMarketController *controller = [[GeneralMarketController alloc] init];
+//        controller.shopId = [NSString stringWithFormat:@"%@", self.entity.LinkId];
+//        [Vc pushViewController:controller animated:YES];
+//        [self removeFromSuperview];
         
-    }else if ([self.entity.BusinessFormat isEqualToString:@"cafe"] || [self.entity.BusinessFormat isEqualToString:@"hotel"] || [self.entity.BusinessFormat isEqualToString:@"ktv"] || [self.entity.BusinessFormat isEqualToString:@"restaurant"]){//咖啡店、酒店、KTV、美食  ①②
-        RestaurantClassController *controller = [[RestaurantClassController alloc] init];
-        controller.shopId = [NSString stringWithFormat:@"%@", self.entity.LinkId];
-//        [Vc.navigationController  pushViewController:controller animated:YES];
-       
-        [Vc pushViewController:controller animated:YES];
-        [self removeFromSuperview];
+//    }else if ([self.entity.BusinessFormat isEqualToString:@"cafe"] || [self.entity.BusinessFormat isEqualToString:@"hotel"] || [self.entity.BusinessFormat isEqualToString:@"ktv"] || [self.entity.BusinessFormat isEqualToString:@"restaurant"]){//咖啡店、酒店、KTV、美食  ①②
+//        RestaurantClassController *controller = [[RestaurantClassController alloc] init];
+//        controller.shopId = [NSString stringWithFormat:@"%@", self.entity.LinkId];
+////        [Vc.navigationController  pushViewController:controller animated:YES];
+//       
+//        [Vc pushViewController:controller animated:YES];
+//        [self removeFromSuperview];
         
     }else{//影院、亲子、甜点饮品、美业、酒吧、健身、培训、足疗按摩、宠物店 ②
-        
-        FilmClassController *controller = [[FilmClassController alloc] init];
-        controller.shopId = [NSString stringWithFormat:@"%@", self.entity.LinkId];
-        [Vc pushViewController:controller animated:YES];
-        [self removeFromSuperview];
+//        
+//        FilmClassController *controller = [[FilmClassController alloc] init];
+//        controller.shopId = [NSString stringWithFormat:@"%@", self.entity.LinkId];
+//        [Vc pushViewController:controller animated:YES];
+//        [self removeFromSuperview];
     }
 
 }
@@ -223,29 +220,29 @@
 #pragma mark - 跳转到商场
 - (void)pushToShopCenter{
     
-    BaseTabBarController *baseVC = (BaseTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-    
-    BaseNavigationController *Vc = [baseVC.viewControllers firstObject];
-    ShopCenterController *controller = [[ShopCenterController alloc] init];
-    if ([self.entity.BusinessFormat isEqualToString:@"shoppingcenter"] || [self.entity.BusinessFormat  isEqualToString:@"departmentstore"]) {
-        //购物中心
-        controller.type = 1;
-    }else{
-        //电器卖场
-        controller.type = 2;
-        
-    }
-    controller.mId = [NSString stringWithFormat:@"%@", self.entity.LinkId];
-    [Vc pushViewController:controller animated:YES];
+//    BaseTabBarController *baseVC = (BaseTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+//    
+//    BaseNavigationController *Vc = [baseVC.viewControllers firstObject];
+//    ShopCenterController *controller = [[ShopCenterController alloc] init];
+//    if ([self.entity.BusinessFormat isEqualToString:@"shoppingcenter"] || [self.entity.BusinessFormat  isEqualToString:@"departmentstore"]) {
+//        //购物中心
+//        controller.type = 1;
+//    }else{
+//        //电器卖场
+//        controller.type = 2;
+//        
+//    }
+//    controller.mId = [NSString stringWithFormat:@"%@", self.entity.LinkId];
+//    [Vc pushViewController:controller animated:YES];
 }
 
 #pragma mark - 跳转到H5
 - (void)pushToHtml {
-    WebViewController *webVC= [[WebViewController alloc] init];
-    webVC.webUrl = self.entity.LinkUrl;
-    BaseTabBarController *baseVC = (BaseTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
-    BaseNavigationController *Vc = [baseVC.viewControllers firstObject];
-    [Vc pushViewController:webVC animated:YES];
+//    WebViewController *webVC= [[WebViewController alloc] init];
+//    webVC.webUrl = self.entity.LinkUrl;
+//    BaseTabBarController *baseVC = (BaseTabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController;
+//    BaseNavigationController *Vc = [baseVC.viewControllers firstObject];
+//    [Vc pushViewController:webVC animated:YES];
 }
 
 

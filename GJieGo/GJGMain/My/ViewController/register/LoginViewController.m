@@ -422,8 +422,7 @@ typedef NS_ENUM(NSInteger, LoginViewControllerTag){
             }
             [_activityView startAnimating];
             [_loginButton setTitle:@"登录中" forState:UIControlStateNormal];
-            //统计
-            [[GJGStatisticManager sharedManager] statisticByEventID:ID_0201080250002 andBCID:nil andMallID:nil andShopID:nil andBusinessType:nil andItemID:nil andItemText:nil andOpUserID:nil];
+
             [[UserRequest shareManager] userLogin:kApiUserLogin param:@{@"ua":mobileStr,@"Up":_passwordTextField.text} success:^(id object,NSString *msg) {
                 NSLog(@"app用户登陆成功");
                 EMError *error = [[EMClient sharedClient] loginWithUsername:[UserDBManager shareManager].HxAccount password:[UserDBManager shareManager].HxPassword];

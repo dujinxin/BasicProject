@@ -10,7 +10,6 @@
 #import "OrderGuiderView.h"
 #import "LevelView.h"
 #import "FansEntity.h"
-#import "UserHomeViewController.h"
 
 @interface FansViewController ()
 
@@ -189,10 +188,10 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    FansEntity * entity = _dataArray[indexPath.row];
-    UserHomeViewController *userHomeVC = [[UserHomeViewController alloc] init];
-    userHomeVC.userId = entity.UserID.integerValue;
-    [self.navigationController pushViewController:userHomeVC animated:YES];
+//    FansEntity * entity = _dataArray[indexPath.row];
+//    UserHomeViewController *userHomeVC = [[UserHomeViewController alloc] init];
+//    userHomeVC.userId = entity.UserID.integerValue;
+//    [self.navigationController pushViewController:userHomeVC animated:YES];
 }
 #pragma mark - RefreshAndLoadMore
 - (void)refresh:(NSInteger)page{

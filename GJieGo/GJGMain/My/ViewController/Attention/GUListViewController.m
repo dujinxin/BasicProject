@@ -14,9 +14,6 @@
 #import "LevelView.h"
 #import "AttentionEntity.h"
 
-#import "GuideHomeViewController.h"
-#import "UserHomeViewController.h"
-
 @interface GUListViewController ()
 @end
 
@@ -133,16 +130,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (_type == Guider) {
-        AttentionGuiderEntity * entity = _dataArray[indexPath.row];
-        GuideHomeViewController *home = [[GuideHomeViewController alloc] init];
-        home.gid = entity.UserId.integerValue;
-        home.statisticChatOfHome = ID_0201080180003;
-        [self.navigationController pushViewController:home animated:YES];
+//        AttentionGuiderEntity * entity = _dataArray[indexPath.row];
+//        GuideHomeViewController *home = [[GuideHomeViewController alloc] init];
+//        home.gid = entity.UserId.integerValue;
+//        home.statisticChatOfHome = ID_0201080180003;
+//        [self.navigationController pushViewController:home animated:YES];
     }else {
-        AttentionEntity * entity = _dataArray[indexPath.row];
-        UserHomeViewController *userHomeVC = [[UserHomeViewController alloc] init];
-        userHomeVC.userId = entity.UserId.integerValue;
-        [self.navigationController pushViewController:userHomeVC animated:YES];
+//        AttentionEntity * entity = _dataArray[indexPath.row];
+//        UserHomeViewController *userHomeVC = [[UserHomeViewController alloc] init];
+//        userHomeVC.userId = entity.UserId.integerValue;
+//        [self.navigationController pushViewController:userHomeVC animated:YES];
     }
 }
 #pragma mark - RefreshAndLoadMore

@@ -144,13 +144,13 @@ static NotificationManager * manager = nil;
             case NotificationReturnType:
             {
                 if ([extraDict[@"Infotype"] integerValue] == NotificationAssociationProm) {
-                    ShopGuideDetailViewController *svc = [[ShopGuideDetailViewController alloc] init];
-                    svc.infoid = [extraDict[@"InfoId"] integerValue];
-                    [baseVc pushViewController:svc animated:YES];
+//                    ShopGuideDetailViewController *svc = [[ShopGuideDetailViewController alloc] init];
+//                    svc.infoid = [extraDict[@"InfoId"] integerValue];
+//                    [baseVc pushViewController:svc animated:YES];
                 }else if([extraDict[@"Infotype"] integerValue] == NotificationAssociationShow){
-                    SharedOrderDetailViewController *svc = [[SharedOrderDetailViewController alloc] init];
-                    svc.infoId = [extraDict[@"InfoId"] integerValue];
-                    [baseVc pushViewController:svc animated:YES];
+//                    SharedOrderDetailViewController *svc = [[SharedOrderDetailViewController alloc] init];
+//                    svc.infoId = [extraDict[@"InfoId"] integerValue];
+//                    [baseVc pushViewController:svc animated:YES];
                 }else{
                     [[JXViewManager sharedInstance] showJXNoticeMessage:@"用户类型出错！"];
                 }

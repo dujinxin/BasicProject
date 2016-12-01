@@ -7,9 +7,8 @@
 //
 
 #import "CollectionListViewController.h"
-#import "FilmClassController.h"
-#import "GeneralMarketController.h"
-#import "RestaurantClassController.h"
+
+
 #import "CollectionViewCell.h"
 #import "JXSelectView.h"
 #import "CollectionDropView.h"
@@ -172,25 +171,12 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
     CollectionEntity * entity = _dataArray[indexPath.item];
-    if ([entity.TypeKey isEqualToString:@"supermarket"]) {//超市    ②③
-        GeneralMarketController *controller = [[GeneralMarketController alloc] init];
-        //        controller.title = item.ShopName;
-        controller.shopId = entity.ShopID;
-        [self.navigationController pushViewController:controller animated:YES];
-    }else if ([entity.TypeKey isEqualToString:@"cafe"] || [entity.TypeKey isEqualToString:@"hotel"] || [entity.TypeKey isEqualToString:@"ktv"] || [entity.TypeKey isEqualToString:@"restaurant"]){//咖啡店、酒店、KTV、美食  ①②
-        RestaurantClassController *controller = [[RestaurantClassController alloc] init];
-        //        controller.title = item.ShopName;
-        controller.shopId = entity.ShopID;
-        [self.navigationController pushViewController:controller animated:YES];
-        
-    }else{//影院、亲子、甜点饮品、美业、酒吧、健身、培训、足疗按摩、宠物店 ②
-        //        SpecialtyStoreClassController *controller = [[SpecialtyStoreClassController alloc] init];
-        
-        FilmClassController *controller = [[FilmClassController alloc] init];
-        //        controller.title = item.ShopName;
-        controller.shopId = entity.ShopID;
-        [self.navigationController pushViewController:controller animated:YES];
-    }
+//    if ([entity.TypeKey isEqualToString:@"supermarket"]) {//超市    ②③
+//        GeneralMarketController *controller = [[GeneralMarketController alloc] init];
+//        //        controller.title = item.ShopName;
+//        controller.shopId = entity.ShopID;
+//        [self.navigationController pushViewController:controller animated:YES];
+//    }
 }
 #pragma mark - RefreshAndLoadMore
 - (void)refresh:(NSInteger)page{

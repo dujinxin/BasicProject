@@ -621,8 +621,7 @@
         
         [_registerButton setTitle:@"注册中" forState:UIControlStateNormal];
         [_activityView startAnimating];
-        //统计
-        [[GJGStatisticManager sharedManager] statisticByEventID:ID_0201080240001 andBCID:nil andMallID:nil andShopID:nil andBusinessType:nil andItemID:nil andItemText:nil andOpUserID:nil];
+
         NSDictionary * dict = @{@"Ph":mobileStr,@"Up":_passwordTextField.text,@"Ug":[NSNumber numberWithInt:0],@"Uag":[NSNumber numberWithInt:18],@"Pc":_verficationTextField.text,@"Code":_confirmPasswordTextField.text?_confirmPasswordTextField.text:@""};
         [[UserRequest shareManager] userRegister:kApiUserRegiser param:dict success:^(id object,NSString *msg) {
             NSLog(@"app用户注册成功");
@@ -680,7 +679,7 @@
                         }
                     });
                     
-                    NSString * parameterStr = [DJXNetworkConfig commonParameter:nil longitude:[NSNumber numberWithDouble:[GJGLocationManager sharedManager].longitude] latitude:[NSNumber numberWithDouble:[GJGLocationManager sharedManager].latitude]];
+                    NSString * parameterStr = [DJXNetworkConfig commonParameter:nil longitude:@0 latitude:@0];
                     [[UserRequest shareManager] userShortToken:kGJGRequestUrl_v_cp(kApiVersion,kApiUserShortToken,parameterStr) param:@{@"Uc":[DJXNetworkConfig tokenStr:nil]} success:^(id object,NSString *msg) {
                         [self showJXNoticeMessage:@"修改成功"];
                         [self hideLoadView];

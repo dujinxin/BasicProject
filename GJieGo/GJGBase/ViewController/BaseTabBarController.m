@@ -16,11 +16,8 @@
 @implementation BaseTabBarController
 
 - (void)viewDidLoad{
-    
     [super viewDidLoad];
-    
     [self setUpChildVC];
-    
     [self setUpTabBar];
 }
 
@@ -54,7 +51,7 @@
 
 #pragma mark - setUpTabBar
 - (void)setUpTabBar{
-    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, 49)];
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 49)];
     backView.backgroundColor = [UIColor blackColor];
     [self.tabBar insertSubview:backView atIndex:0];
     self.tabBar.opaque = YES;

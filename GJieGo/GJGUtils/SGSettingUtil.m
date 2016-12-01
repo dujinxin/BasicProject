@@ -543,41 +543,6 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
     return strlength;
 }
 
-// 改变线条颜色和高度
-+ (void)changeLineHeightAndColor:(UILabel *)line {
-    ChangeViewH(line, SGHeight_Line);
-    [Utils changeRoundViewWithBorderView:line withRadius:0.0 withBorderColor:SGColor_Line_White_Gray board:SGHeight_Line];
-}
-
-// 在两个view之间添加颜色view
-+ (void)insertSubColorView:(UIView *)parentView withUpView:(UIView *)upView withDownView:(UIView *)downView withColor:(UIColor *)color {
-    UIView *tempView_0 = nil;
-    if (upView && downView) {
-        tempView_0 = [SGSettingUtil  drawColorViewWithRect:CGRectMake(0, VIEW_BY(upView), ScreenWidth, VIEW_TY(downView)-VIEW_BY(upView)) withColor:color];
-    }else if (upView && !downView) {
-        tempView_0 = [SGSettingUtil  drawColorViewWithRect:CGRectMake(0, VIEW_BY(upView), ScreenWidth, VIEW_H(parentView)-VIEW_BY(upView)) withColor:color];
-    }else if (!upView && downView) {
-        tempView_0 = [SGSettingUtil  drawColorViewWithRect:CGRectMake(0, 0, ScreenWidth, VIEW_TY(downView)) withColor:color];
-    }
-    [parentView insertSubview:tempView_0 atIndex:0];
-}
-
-// 改变superView里边的line
-+ (void)changeLineViewWithSuperView:(UIView *)superView {
-    NSArray *viewArray = [superView subviews];
-    for (UIView *tempView in viewArray) {
-        if ([tempView isKindOfClass:[UILabel class]]) {
-            UILabel *tempLabel = (UILabel *)tempView;
-            if (tempLabel.frame.size.height == 1.0) {
-                ChangeViewH(tempLabel, 0.5);
-                tempLabel.backgroundColor = SGColor_Line_White_Gray;
-            }else if (tempLabel.frame.size.width == 1.0) {
-                ChangeViewW(tempLabel, 0.5);
-                tempLabel.backgroundColor = SGColor_Line_White_Gray;
-            }
-        }
-    }
-}
 
 // 传入两个view使两个view处于水平同一条线上
 + (void)changeViewHorizontalCenterWithOneView:(UIView *)oneView withOtherView:(UIView *)otherView {

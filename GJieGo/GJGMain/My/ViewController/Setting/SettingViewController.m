@@ -220,7 +220,7 @@
 
                 }
             });
-            NSString * parameterStr = [DJXNetworkConfig commonParameter:nil longitude:[NSNumber numberWithDouble:[GJGLocationManager sharedManager].longitude] latitude:[NSNumber numberWithDouble:[GJGLocationManager sharedManager].latitude]];
+            NSString * parameterStr = [DJXNetworkConfig commonParameter:nil longitude:@0 latitude:@0];
             [[UserRequest shareManager] userShortToken:kGJGRequestUrl_v_cp(kApiVersion,kApiUserShortToken,parameterStr) param:@{@"Uc":[DJXNetworkConfig tokenStr:nil]} success:^(id object,NSString *msg) {
                 [self hideLoadView];
                 [self.navigationController popToRootViewControllerAnimated:YES];
