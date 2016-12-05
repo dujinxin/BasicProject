@@ -401,10 +401,8 @@ static CGFloat MyHeadViewHeight = 225;
                 switch (indexPath.row) {
                     case 0:
                     {
-                        [self showJXNoticeMessage:@"功能马上开通，敬请期待"];
-                        return ;
-//                        CouponListViewController * cvc = [[CouponListViewController alloc ] init ];
-//                        [self.navigationController pushViewController:cvc animated:YES];
+                        CouponListViewController * cvc = [[CouponListViewController alloc ] init ];
+                        [self.navigationController pushViewController:cvc animated:YES];
                     }
                         break;
                     case 1:

@@ -80,9 +80,8 @@
     self.navigationItem.title = @"收藏的店铺";
     
     
-    _dropListView = [[CollectionDropView alloc]initWithFrame:CGRectMake(0, kNavStatusHeight, kScreenWidth, 44) buttonTitles:@[@"分类",@"离我最近"]];
-    _dropListView.delegate = self;
-    _dropListView.dataSource = self;
+    _dropListView = [[CollectionDropView alloc]initWithFrame:CGRectMake(0, kNavStatusHeight, kScreenWidth, 44) delegate:self buttonTitles:@[@"分类",@"离我最近"]];
+    _dropListView.animation = DropListAnimationOptionChange;
     [self.view addSubview:_dropListView];
     
     [_collectionView registerClass:[CollectionViewCell class] forCellWithReuseIdentifier:cellIdentifier];
@@ -133,7 +132,13 @@
 }
 
 #pragma mark - JXDropListViewDataSource
-
+- (DropListStyle)dropListView:(CollectionDropView *)dropListView styleForItemIndex:(NSInteger)index{
+    if (index == 0) {
+        return DropListCollection;
+    }else{
+        return DropListTable;
+    }
+}
 -(NSInteger)dropListView:(CollectionDropView *)dropListView numberOfRowsInFirstView:(UIView *)view inSection:(NSInteger)section{
     if (dropListView.selectTab == 0) {
         return _categoryAarry.count;

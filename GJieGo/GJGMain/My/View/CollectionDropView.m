@@ -14,10 +14,12 @@ static CGFloat  listViewHeight         = 44.0;
 static NSString  * const secondCellIdentifier = @"SecondViewCell";
 static NSString  * const headerIdentifier = @"Header";
 
+
+#define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
+
 @interface CollectionDropView (){
     UIView     *  _bgView;
     UIView     *  _bottomLine;
-    NSArray    *  sortData;//特殊处理，不需要可自行删除
     NSInteger     _rowNum;
 }
 
@@ -97,24 +99,95 @@ static NSString  * const headerIdentifier = @"Header";
     _selectRow = selectRow;
 }
 
+-(NSMutableArray *)topItems{
+    if (!_topItems || !_topItems.count) {
+        _topItems = [NSMutableArray array];
+        
+        CGFloat width = kScreenWidth/_dataArray.count;
+        CGFloat height = topBarHeight;
 
--(instancetype)initWithFrame:(CGRect)frame buttonTitles:(NSArray *)buttonTitles{
+        _bottomLine = [UITool createBackgroundViewWithColor:JXMainColor frame:CGRectMake(0, height -1, width, 1)];
+        
+        for (int i = 0; i< _dataArray.count; i++) {
+            UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            btn.frame = CGRectMake(width *i, 0, width, height);
+            btn.backgroundColor = [UIColor clearColor];
+            btn.tag = kTopBarItemTag +i;
+            [btn addTarget:self action:@selector(topTabAction:) forControlEvents:UIControlEventTouchUpInside];
+            [btn setTitleColor:JXColorFromRGB(0x777777) forState:UIControlStateNormal];
+            [btn setTitle:_dataArray[i] forState:UIControlStateNormal];
+            btn.titleLabel.font = [UIFont systemFontOfSize:15];
+            CGFloat titleWidth = btn.currentTitle.length * 15 +2.5;
+            CGFloat imageWidth = 15 +2.5;
+            [btn setImage:JXImageNamed(@"tab_cbb_down_default") forState:UIControlStateNormal];
+            btn.imageEdgeInsets = UIEdgeInsetsMake(0, titleWidth, 0, -titleWidth);
+            btn.titleEdgeInsets = UIEdgeInsetsMake(0, -imageWidth, 0, imageWidth);
+            if (i <_dataArray.count -1) {
+                UIView * xLine = [UITool createBackgroundViewWithColor:JXColorFromRGB(0xb7b7b7) frame:CGRectMake(width-0.5, 12, 0.5, 20)];
+                [btn addSubview:xLine];
+            }
+            
+            [self.topBarView addSubview:btn];
+            [_topItems addObject:btn];
+        }
+        [self addSubview:self.topBarView];
+        
+    }
+    return _topItems;
+}
+
+-(instancetype)initWithFrame:(CGRect)frame delegate:(id)delegate buttonTitles:(NSArray *)buttonTitles{
     self = [self initWithFrame:frame];
     if (self) {
         NSAssert(buttonTitles.count, @"ButtonTitles can not be nil or empty！");
         self.frame = frame;
         self.backgroundColor = [UIColor clearColor];
+        self.delegate = delegate;
+        self.dataSource = delegate;
+        self.style = DropListTable;
+        self.animation = DropListAnimationOptionRotation;
+        
         _dataArray = [NSMutableArray arrayWithArray:buttonTitles];
-        _hiddenList = YES;
         _selectTab = -1;
         _selectIndexs = [NSMutableArray arrayWithCapacity:buttonTitles.count];
         _selectIndexs = [NSMutableArray arrayWithArray:@[@[@0,@0],@[@0,@0]]];
-        [self initTopItems];
+        
+        if ([self.dataSource respondsToSelector:@selector(topItemsForDropListView:)]) {
+            [self addTopItems:[self.dataSource topItemsForDropListView:self]];
+        }else{
+            //[self addTopItems:nil];
+            [self initTopItems];
+        }
         _selectItem = 0;
         _selectRow = -1;
-        sortData = @[@"离我最近",@"收藏最多",@"评论最多"];
     }
     return self;
+}
+-(void)addTopItems:(NSArray<UIView *>*)array{
+    NSAssert(array.count, @"Items can not be nil or empty！");
+    [self.topBarView removeAllSubviews];
+    
+    CGFloat width = kScreenWidth/_dataArray.count;
+    CGFloat height = topBarHeight;
+  
+    _bottomLine = [UITool createBackgroundViewWithColor:JXMainColor frame:CGRectMake(0, height -1, width, 1)];
+    
+    for (int i = 0; i< array.count; i++) {
+        NSAssert([array[i] isKindOfClass:[UIView class]], @"Item must be a view！");
+        UIView * v = array[i];
+        if ([v isKindOfClass:[UIButton class]]) {
+            UIButton * button = (UIButton *)v;
+            [button addTarget:self action:@selector(topTabAction:) forControlEvents:UIControlEventTouchUpInside];
+        }
+//        if (i <array.count -1) {
+//            UIView * xLine = [UITool createBackgroundViewWithColor:JXColorFromRGB(0xb7b7b7) frame:CGRectMake(width-0.5, 12, 0.5, 20)];
+//            [v addSubview:xLine];
+//        }
+        
+        [self.topBarView addSubview:v];
+    }
+    [self addSubview:self.topBarView];
+    
 }
 -(void)initTopItems{
     CGFloat width = kScreenWidth/_dataArray.count;
@@ -130,12 +203,14 @@ static NSString  * const headerIdentifier = @"Header";
         btn.backgroundColor = [UIColor clearColor];
         btn.tag = kTopBarItemTag +i;
         [btn addTarget:self action:@selector(topTabAction:) forControlEvents:UIControlEventTouchUpInside];
-        [btn setTitleColor:JXColorFromRGB(0x777777) forState:UIControlStateNormal];
+        [btn setTitleColor:JX999999Color forState:UIControlStateNormal];
+        [btn setTitleColor:JXMainColor forState:UIControlStateSelected];
         [btn setTitle:_dataArray[i] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:15];
         CGFloat titleWidth = btn.currentTitle.length * 15 +2.5;
         CGFloat imageWidth = 15 +2.5;
         [btn setImage:JXImageNamed(@"tab_cbb_down_default") forState:UIControlStateNormal];
+        [btn setImage:JXImageNamed(@"tab_cbb_up_selected") forState:UIControlStateSelected];
         btn.imageEdgeInsets = UIEdgeInsetsMake(0, titleWidth, 0, -titleWidth);
         btn.titleEdgeInsets = UIEdgeInsetsMake(0, -imageWidth, 0, imageWidth);
         if (i <_dataArray.count -1) {
@@ -156,42 +231,21 @@ static NSString  * const headerIdentifier = @"Header";
 #pragma mark -
 - (void)topTabAction:(UIButton *)button{
     NSInteger selectTab = button.tag - kTopBarItemTag;
-    for (UIView * view in button.superview.subviews) {
-        if ([view isKindOfClass:[UIButton class]]) {
-            UIButton * btn = (UIButton *)view;
-            if (button.tag == btn.tag) {
-
-                if (btn.isSelected) {
-                    [btn setTitleColor:JX999999Color forState:UIControlStateNormal];
-                    [btn setImage:JXImageNamed(@"tab_cbb_down_default") forState:UIControlStateNormal];
-                }else{
-
-                    [btn setTitleColor:JXMainColor forState:UIControlStateNormal];
-                    [btn setImage:JXImageNamed(@"tab_cbb_up_selected") forState:UIControlStateNormal];
-                }
-                btn.selected = !btn.selected;
-                
-            }else{
-                [btn setTitleColor:JX999999Color forState:UIControlStateNormal];
-                [btn setImage:JXImageNamed(@"tab_cbb_down_default") forState:UIControlStateNormal];
-                [btn setSelected:NO];
-            }
-        }
-    }
+    [self animation:_animation view:button];
     
     if ([self.delegate respondsToSelector:@selector(dropListView:didSelectTab:index:)]) {
         [self.delegate dropListView:self didSelectTab:button index:selectTab];
     }
+    if ([self.dataSource respondsToSelector:@selector(dropListView:styleForItemIndex:)]) {
+        self.style = [self.dataSource dropListView:self styleForItemIndex:selectTab];
+    }
     
     if (_selectTab == selectTab) {
-        _hiddenList = !_hiddenList;
         [self dismiss];
     }else{
-        
-        _hiddenList = NO;
         _selectTab = selectTab;
         if([self.dataSource respondsToSelector:@selector(dropListView:numberOfRowsInFirstView:inSection:)]){
-            if (selectTab == 0) {
+            if (self.style == DropListCollection) {
                 NSInteger i = [self.dataSource dropListView:self numberOfRowsInFirstView:_collectionView inSection:0];
                 if (i<=0) {
                     return;
@@ -205,29 +259,48 @@ static NSString  * const headerIdentifier = @"Header";
             }
             
         }
-        
         [self show];
-        
     }
-    if (_selectTab == 0) {
-        [_collectionView reloadData];
+    if (self.style == DropListTable) {
+        [self.tableView reloadData];
     }else{
-        [_tableView reloadData];
+        [self.collectionView reloadData];
+    }
+}
+-(void)animation:(DropListAnimation)animation view:(UIView *)view{
+    NSInteger selectTab = view.tag - kTopBarItemTag;
+    
+    if (animation == DropListAnimationOptionChange) {
+        for (UIView * v in view.superview.subviews) {
+            if ([v isKindOfClass:[UIButton class]]) {
+                UIButton * btn = (UIButton *)v;
+                if (view.tag == btn.tag) {
+                    btn.selected = !btn.selected;
+                }else{
+                    [btn setSelected:NO];
+                }
+            }
+        }
+    }else{
+        if ([view.superview viewWithTag:self.selectTab +kTopBarItemTag] && self.selectTab != -1) {
+            UIButton * btn =(UIButton *)[view.superview viewWithTag:self.selectTab +kTopBarItemTag];
+            [UIView animateWithDuration:0.3 animations:^{
+                btn.imageView.transform = CGAffineTransformRotate(btn.imageView.transform, DEGREES_TO_RADIANS(180));
+            }];
+        }
+        if (self.selectTab != selectTab){
+            UIButton * btn =(UIButton *)[view.superview viewWithTag:selectTab +kTopBarItemTag];
+            [UIView animateWithDuration:0.3 animations:^{
+                btn.imageView.transform = CGAffineTransformRotate(btn.imageView.transform, DEGREES_TO_RADIANS(180));
+            }];
+        }
     }
 }
 - (void)resetTabState{
     for (UIView * view in self.topBarView.subviews) {
         if ([view isKindOfClass:[UIButton class]]) {
             UIButton * btn = (UIButton *)view;
-            [btn setTitleColor:JX999999Color forState:UIControlStateNormal];
-            [btn setImage:JXImageNamed(@"tab_cbb_down_default") forState:UIControlStateNormal];
             [btn setSelected:NO];
-            if (btn.tag == kTopBarItemTag + 1 && _selectRow >=0) {
-                [btn setTitle:sortData[_selectRow] forState:UIControlStateNormal];
-            }
-//            if (btn.tag == kTopBarItemTag + 2 && _selectItem >=0){
-//                [btn setTitle:sortData[_selectItem] forState:UIControlStateNormal];
-//            }
         }
     }
 }
@@ -240,31 +313,28 @@ static NSString  * const headerIdentifier = @"Header";
     [self.bgView setFrame:CGRectMake(0, topBarHeight +self.frame.origin.y, self.frame.size.width, self.superview.frame.size.height - topBarHeight -self.frame.origin.y)];
     
     [self.superview addSubview:self.bgView];
-    if (_selectTab == 0) {
-        [self.collectionView setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y +topBarHeight, self.frame.size.width, 0)];
-        [self.superview addSubview:self.collectionView];
-    }else if (_selectTab == 1){
+    
+    CGRect rect1 = CGRectZero;
+    CGRect rect2 = CGRectZero;
+    if (self.style == DropListTable) {
         [self.tableView setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y +topBarHeight, self.frame.size.width, 0)];
         [self.superview addSubview:self.tableView];
-    }
-    
-    CGRect rect1 = self.tableView.frame;
-    CGRect rect2 = self.collectionView.frame;
-    //动画设置位置
-    rect1.size.height = listViewHeight *5;
-    rect2.size.height = listViewHeight *5;
-    if (_selectTab == 0) {
+        
+        rect1 = self.tableView.frame;
+        rect1.size.height = listViewHeight *[self.dataSource dropListView:self numberOfRowsInFirstView:_tableView inSection:0];
+    }else{
+        [self.collectionView setFrame:CGRectMake(self.frame.origin.x, self.frame.origin.y +topBarHeight, self.frame.size.width, 0)];
+        [self.superview addSubview:self.collectionView];
+        
+        rect2 = self.collectionView.frame;
         if (self.isHaveTabBar) {
             rect2.size.height = kScreenHeight - kNavStatusHeight - kTabBarHeight -topBarHeight;
         }else{
             rect2.size.height = kScreenHeight - kNavStatusHeight -topBarHeight;
             rect2.size.height = 48 +33 *_rowNum +10 *(_rowNum -1);
         }
-        
-        
-    }else{
-        rect1.size.height = listViewHeight *[self.dataSource dropListView:self numberOfRowsInFirstView:_collectionView inSection:0];
     }
+    //动画设置
     [UIView animateWithDuration:0.3 animations:^{
         self.bgView.alpha = 0.5;
         self.tableView.frame =  rect1;
@@ -272,15 +342,12 @@ static NSString  * const headerIdentifier = @"Header";
     }];
 }
 
-- (void)dismiss
-{
+- (void)dismiss{
     [self dismiss:YES];
 }
-- (void)dismiss:(BOOL)animated
-{
+- (void)dismiss:(BOOL)animated{
     if (_selectTab != -1) {
         _selectTab = -1;
-        _hiddenList = YES;
         if (animated) {
             CGRect rect1 = self.tableView.frame;
             CGRect rect2 = self.collectionView.frame;
@@ -309,28 +376,6 @@ static NSString  * const headerIdentifier = @"Header";
         [_collectionView removeFromSuperview];
     }
 }
--(void)resTopBarItem:(id)object index:(NSInteger)index{
-    //NSInteger selectItem = button.tag - kTopBarItemTag;
-    for (UIView * view in _topBarView.subviews) {
-        if ([view isKindOfClass:[UIButton class]]) {
-            UIButton * btn = (UIButton *)view;
-            if (btn.tag == kTopBarItemTag +_selectTab) {
-                [btn setTitleColor:JXMainColor forState:UIControlStateNormal];
-                [btn setTitle:object forState:UIControlStateNormal];
-            }else{
-                if (index == 0) {
-                    if (btn.tag -kTopBarItemTag != 3) {
-                        [btn setTitleColor:JXColorFromRGB(0x777777) forState:UIControlStateNormal];
-                    }
-                    if (btn.tag == kTopBarItemTag +1){
-                        btn.selected = NO;
-                        [btn setImage:JXImageNamed(@"pro_price_unselect") forState:UIControlStateNormal];
-                    }
-                }
-            }
-        }
-    }
-}
 #pragma mark ----------------- JXDropListViewStyleList
 #pragma mark - UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -344,26 +389,18 @@ static NSString  * const headerIdentifier = @"Header";
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (nil == cell) {
         cell = [[UITableViewCell alloc ]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        //[cell addSubview:[UITool createBackgroundViewWithColor:JXEeeeeeColor frame:CGRectMake(0, 44-1, kScreenWidth, 1)]];
+        cell.textLabel.textColor  = JX333333Color;
+        cell.textLabel.font = JXFontForNormal(13);
     }
     cell.backgroundView = [[UIView alloc]initWithFrame:cell.bounds];
     cell.backgroundView.backgroundColor = JXFfffffColor;
-    cell.textLabel.textColor  = JX333333Color;
-    cell.textLabel.font = JXFontForNormal(13);
+    
     if ([self.dataSource respondsToSelector:@selector(dropListView:contentForRow:section:inView:)]) {
-        if (_selectRow >= 0) {
-            if (_selectRow == indexPath.row) {
-                cell.backgroundView.backgroundColor = JXF1f1f1Color;
-            }
-        }else{
-            if (indexPath.row == [[_selectIndexs[_selectTab] firstObject] integerValue]) {
-                cell.backgroundView.backgroundColor = JXFfffffColor;
-            }
+
+        if (indexPath.row == [[_selectIndexs[_selectTab] lastObject] integerValue]) {
+            cell.backgroundView.backgroundColor = JXF1f1f1Color;
         }
-        
-        if (_selectTab == 1){
-            cell.textLabel.text = [self.dataSource dropListView:self contentForRow:indexPath.row section:indexPath.section inView:_tableView];
-        }
+        cell.textLabel.text = [self.dataSource dropListView:self contentForRow:indexPath.row section:indexPath.section inView:_tableView];
         
     }
     return cell;
@@ -372,6 +409,7 @@ static NSString  * const headerIdentifier = @"Header";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     _selectRow = indexPath.row;
+    [_selectIndexs replaceObjectAtIndex:_selectTab withObject:@[@(indexPath.section),@(indexPath.row)]];
     [self resetTabState];
     
     if ([self.delegate respondsToSelector:@selector(dropListView:didSelectItemAtIndexPath:)]) {
@@ -411,6 +449,7 @@ static NSString  * const headerIdentifier = @"Header";
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"点击：%ld",(long)indexPath.item);
     _selectItem = indexPath.item;
+    [_selectIndexs replaceObjectAtIndex:_selectTab withObject:@[@(indexPath.section),@(indexPath.item)]];
     [self resetTabState];
     [_collectionView reloadData];
     
@@ -466,6 +505,19 @@ static NSString  * const headerIdentifier = @"Header";
         _titleView.userInteractionEnabled = NO;
     }
     return _titleView;
+}
+
+@end
+
+@implementation TopAttributes
+
+- (instancetype)init{
+    if (self == [super init]) {
+        self.normalColor = JX999999Color;
+        self.highlightedColor = JX333333Color;
+        self.separatorColor = JXSeparatorColor;
+    }
+    return self;
 }
 
 @end
